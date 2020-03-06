@@ -1,91 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<title>J-Tech</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon2.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/countdowntime/flipclock.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-</head>
-<body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-	<div class="bg-img1 size1 overlay1 p-b-35 p-l-15 p-r-15" style="background-image: url('images/bg01.png');">
-		<div class="flex-col-c p-t-160 p-b-215 respon1">
-			<div class="wrappic1">
-					<h3 class="l1-txt1 txt-center p-t-30 p-b-100">
-						<b>J-Tech</b>
-					</h3>
-			</div>
+    <title>Jorge Perez</title>
+  </head>
+  <body>
 
-			<h3 class="l1-txt1 txt-center p-t-30 p-b-100">
-				Coming Soon
-			</h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Jorge Perez</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-			<div class="cd100"></div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/about.html">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cv.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/projects.html" tabindex="-1" aria-disabled="true">Projects</a>
+          </li>
+        </ul>
 
-		</div>
+      </div>
+    </nav>
 
-		<!--  -->
+    <div class="alert alert-warning" role="alert">
+  Page still under cunstruction!   Last update: March 06, 2020  -  12:25pm CST
+</div>
 
-	</div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Hi, I'm Jorge Perez</h1>
+        <p class="lead">Software Developer Engineer in Tests on AMCO, Father of superhero child and husband to the most amazing woman in the universe.</p>
+        <p class="lead">I live in Guadalajara, Jalisco, Mexico and enjoy camping and stargazing. </p>
+      </div>
+    </div>
 
+    <div class="container">
+        <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>About Me</h2>
+          <p>I'm a  Mexican Software Developer, although I can easily spend the whole day locked up and develop games or create scripts, I also enjoy spending the weekend at Santa Maria del Oro Lake and set camp under the stars.</p>
+          <p><a class="btn btn-secondary disabled" href="#" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>View my Resume</h2>
+          <p>Here you can download my Resume or sometimes called Curriculum Vitae. there is also an old online version to view on the web <a href="/cv.html">here</a>. </p>
+          <p><a class="btn btn-secondary " href="resources/Jorge Perez Resume.pdf" role="button" download>↓ Download Resume ↓</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Projects</h2>
+          <p>Some of my best work can be found on my Projects page, most of them are done when I was a student in Instituto Tecnologico y de Estudios Superiores del Occidente.</p>
+          <p><a class="btn btn-secondary disabled" href="#" role="button">View details »</a></p>
+        </div>
+      </div>
+    <hr>
 
+    </div>
+    <footer class="container">
+      <p>© Jorge Perez 2020</p>
+    </footer>
 
-
-<!--===============================================================================================-->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="vendor/countdowntime/flipclock.min.js"></script>
-	<script src="vendor/countdowntime/moment.min.js"></script>
-	<script src="vendor/countdowntime/moment-timezone.min.js"></script>
-	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<script>
-		$('.cd100').countdown100({
-			/*Set Endtime here*/
-			/*Endtime must be > current time*/
-			endtimeYear: 2020,
-			endtimeMonth: 04,
-			endtimeDate: 06,
-			endtimeHours: 17,
-			endtimeMinutes: 0,
-			endtimeSeconds: 0,
-			timeZone: ""
-			// ex:  timeZone: "America/New_York"
-			//go to " http://momentjs.com/timezone/ " to get timezone
-		});
-
-
-	</script>
-<!--===============================================================================================-->
-	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="js/main.js"></script>
-
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
 </html>
