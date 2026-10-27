@@ -3,753 +3,577 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jorge Pérez | robots, agents and the great outdoors</title>
+  <meta name="description"
+    content="Jorge Pérez: warehouse robots and RFID by day, AI agents and Steam Deck by night, camping whenever possible.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --void: #060818;
+      --panel: #0d1230;
+      --line: #1d2650;
+      --text: #e9edff;
+      --muted: #929bc9;
+      --cyan: #2ee6ff;
+      --pink: #ff3d9a;
+      --display: 'Unbounded', 'Trebuchet MS', system-ui, sans-serif;
+      --body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color-scheme: dark;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
 
-  <title>Jorge Perez</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit
+    }
 
-  <!-- Favicons -->
-  <link href="assets/img/logo.jpeg" rel="icon">
-  <link href="assets/img/logo.jpeg" rel="apple-touch-icon">
+    html {
+      scroll-behavior: smooth
+    }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+    body {
+      margin: 0;
+      background: var(--void);
+      color: var(--text);
+      font: 400 1.05rem/1.65 var(--body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      background-image: radial-gradient(60rem 30rem at 85% -5%, rgba(46, 230, 255, .13), transparent 60%), radial-gradient(40rem 30rem at -10% 40%, rgba(255, 61, 154, .09), transparent 60%), linear-gradient(rgba(46, 230, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(46, 230, 255, .035) 1px, transparent 1px);
+      background-size: auto, auto, 48px 48px, 48px 48px
+    }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    a {
+      color: inherit
+    }
 
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+      border-radius: 4px
+    }
 
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.4rem
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      margin: 0
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      margin-bottom: .6rem
+    }
+
+    p {
+      margin: 0
+    }
+
+    section {
+      padding: 3.8rem 0
+    }
+
+    .sub {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 36rem
+    }
+
+    .hero {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 3.5rem 0 2.5rem
+    }
+
+    @media(min-width:920px) {
+      .hero {
+        grid-template-columns: 1.05fr 1fr;
+        padding: 5rem 0 3rem
+      }
+    }
+
+    .me {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.6rem
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 26px rgba(46, 230, 255, .45);
+      background: var(--panel);
+      display: grid;
+      place-items: center;
+      font-family: var(--display);
+      font-weight: 700;
+      color: var(--cyan);
+      overflow: hidden
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .where {
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      margin-bottom: 1.3rem
+    }
+
+    .lead {
+      max-width: 34rem;
+      color: #c3caee;
+      font-size: 1.15rem
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+      margin-top: 1.9rem
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .8rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--cyan);
+      transition: box-shadow .2s, background .2s
+    }
+
+    .btn.main {
+      background: var(--cyan);
+      color: #021018;
+      box-shadow: 0 0 28px rgba(46, 230, 255, .35)
+    }
+
+    .btn.main:hover {
+      box-shadow: 0 0 42px rgba(46, 230, 255, .7)
+    }
+
+    .btn.ghost {
+      color: var(--cyan)
+    }
+
+    .btn.ghost:hover {
+      background: rgba(46, 230, 255, .1)
+    }
+
+    .map {
+      background: linear-gradient(160deg, rgba(13, 18, 48, .9), rgba(6, 8, 24, .9));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem 1rem .8rem;
+      box-shadow: 0 0 60px rgba(46, 230, 255, .08);
+      margin: 0
+    }
+
+    .map svg {
+      display: block;
+      width: 100%;
+      height: auto
+    }
+
+    .map figcaption {
+      font-size: .85rem;
+      color: var(--muted);
+      padding: .6rem .4rem 0
+    }
+
+    .ring {
+      fill: none;
+      stroke: var(--pink);
+      stroke-width: 1.5;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: ping 14s infinite;
+      opacity: 0
+    }
+
+    @keyframes ping {
+      0% {
+        transform: scale(.4);
+        opacity: 0
+      }
+
+      2% {
+        opacity: .95
+      }
+
+      7% {
+        transform: scale(3.2);
+        opacity: 0
+      }
+
+      100% {
+        opacity: 0
+      }
+    }
+
+    .rows {
+      border-top: 1px solid var(--line)
+    }
+
+    .row {
+      display: grid;
+      gap: .6rem 2rem;
+      padding: 1.7rem 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    @media(min-width:760px) {
+      .row {
+        grid-template-columns: 16rem 1fr
+      }
+    }
+
+    .row h3 {
+      font-size: 1.2rem;
+      color: var(--cyan)
+    }
+
+    .row p {
+      color: #b4bce3;
+      max-width: 42rem
+    }
+
+    .row b {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin: .9rem 0 0;
+      padding: 0;
+      list-style: none
+    }
+
+    .chips li {
+      padding: .28rem .8rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font-size: .9rem;
+      color: var(--text)
+    }
+
+    .chips.hot li {
+      border-color: rgba(255, 61, 154, .55)
+    }
+
+    .tl {
+      position: relative;
+      margin: 0;
+      padding: 0 0 0 2rem;
+      list-style: none
+    }
+
+    .tl::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: .5rem;
+      bottom: .5rem;
+      width: 2px;
+      background: linear-gradient(var(--cyan), var(--pink))
+    }
+
+    .tl li {
+      position: relative;
+      padding-bottom: 2.2rem
+    }
+
+    .tl li::before {
+      content: "";
+      position: absolute;
+      left: -2rem;
+      top: .45rem;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--void);
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 14px var(--cyan)
+    }
+
+    .tl li:last-child {
+      padding-bottom: 0
+    }
+
+    .when {
+      font-size: .9rem;
+      color: var(--pink);
+      font-weight: 700
+    }
+
+    .tl h3 {
+      font-size: 1.1rem;
+      margin: .3rem 0 .15rem
+    }
+
+    .at {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: .5rem
+    }
+
+    .tl p:last-child {
+      max-width: 44rem;
+      color: #c3caee
+    }
+
+    .off {
+      display: grid;
+      gap: 1.2rem
+    }
+
+    @media(min-width:760px) {
+      .off {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+
+    .off div {
+      padding: 1.4rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--panel)
+    }
+
+    .off div:nth-child(2) {
+      border-color: rgba(255, 61, 154, .5);
+      box-shadow: 0 0 30px rgba(255, 61, 154, .1)
+    }
+
+    .off h3 {
+      font-size: 1.05rem;
+      margin-bottom: .6rem
+    }
+
+    .off p {
+      color: #b4bce3;
+      font-size: .97rem
+    }
+
+    .edu {
+      color: var(--muted);
+      margin-top: 2.2rem;
+      font-size: .95rem
+    }
+
+    .end {
+      padding: 4rem 0 3rem
+    }
+
+    .end h2 {
+      font-size: clamp(1.7rem, 5vw, 3rem);
+      max-width: 38rem;
+      margin-bottom: 1.6rem
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.6rem 0 2.2rem;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      .ring {
+        animation: none
+      }
+    }
+  </style>
 </head>
 
-<body id="page-top">
+<body>
+  <main class="wrap">
 
-  <!-- ======= Header/ Navbar ======= -->
-  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll" href="#page-top">Jorge Perez</a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll active" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#hobbies">Hobbies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#family">Family</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll" href="#blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll" href="#contact">Contact</a>
-          </li> -->
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ======= Intro Section ======= -->
-  <div id="home" class="intro route bg-image" style="background-image: url(assets/photos/banner_black.jpg); background-position: left;">
-    <div class="overlay-itro"></div>
-    <div class="intro-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="intro-title mb-4">Hello, I'm Jorge Perez</h1>
-          <p class="intro-subtitle"><span class="text-slider-items">Software Developer Engineer in Tests,Web Developer,Loves Camping,Loves Stargazing,Loves his Beautiful Wife,Loves his Amazing Son,</span><strong class="text-slider"></strong></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+    <header class="hero">
+      <div>
+        <div class="me">
+          <div class="avatar" id="avatar" aria-label="Photo placeholder">JP</div>
+          <span class="where">Guadalajara, México</span>
+        </div>
+        <h1>Hey, I’m Jorge Perez.</h1>
+        <p class="lead">I teach warehouse robots where to go, get AI agents to do real work, and escape to the woods
+          whenever the calendar allows. Ex-QA, so yes, I will check your code.</p>
+        <div class="cta">
+          <a class="btn main" href="mailto:contact@jorgeperez.dev">Say hi</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/george-perez-a68985140/" target="_blank"
+            rel="noopener">LinkedIn</a>
         </div>
       </div>
-    </div>
-  </div><!-- End Intro Section -->
+      <figure class="map">
+        <svg viewBox="0 0 520 380" role="img"
+          aria-label="Animated warehouse map: a robot follows a route between shelves while RFID reads pulse at checkpoints">
+          <defs>
+            <pattern id="pal" width="22" height="18" patternUnits="userSpaceOnUse">
+              <rect x="2" y="2" width="18" height="14" rx="2" fill="#141c47" />
+            </pattern>
+            <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="4" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <g stroke="#1d2650" stroke-width="1.5">
+            <rect x="60" y="60" width="110" height="250" rx="6" fill="url(#pal)" />
+            <rect x="220" y="60" width="110" height="250" rx="6" fill="url(#pal)" />
+            <rect x="380" y="60" width="110" height="250" rx="6" fill="url(#pal)" />
+          </g>
+          <path id="route" d="M30 345 L30 30 L195 30 L195 345 L355 345 L355 30 L500 30" fill="none" stroke="#2ee6ff"
+            stroke-width="2" stroke-dasharray="6 7" opacity=".55" />
+          <g fill="#ff3d9a">
+            <circle cx="30" cy="185" r="4" />
+            <circle cx="195" cy="120" r="4" />
+            <circle cx="355" cy="250" r="4" />
+            <circle cx="440" cy="30" r="4" />
+          </g>
+          <g>
+            <circle class="ring" cx="30" cy="185" r="10" style="animation-delay:2.4s" />
+            <circle class="ring" cx="195" cy="120" r="10" style="animation-delay:6.4s" />
+            <circle class="ring" cx="355" cy="250" r="10" style="animation-delay:9.6s" />
+            <circle class="ring" cx="440" cy="30" r="10" style="animation-delay:12.6s" />
+          </g>
+          <g filter="url(#glow)">
+            <rect x="-9" y="-9" width="18" height="18" rx="4" fill="#2ee6ff" />
+            <rect x="-4" y="-4" width="8" height="8" rx="2" fill="#021018" />
+            <animateMotion dur="14s" repeatCount="indefinite" calcMode="linear">
+              <mpath href="#route" />
+            </animateMotion>
+          </g>
+        </svg>
+        <figcaption>My day job, simplified: robots, RFID software, zero clipboards.</figcaption>
+      </figure>
+    </header>
 
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about-mf sect-pt4 route">
-      <div class="container">
+    <section>
+      <h2>What keeps me busy</h2>
+      <p class="sub">Three things I’m pretty into right now.</p>
+      <div class="rows">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="row">
-                    <div class="col-sm-6 col-md-5">
-                      <div class="about-img">
-                        <img src="assets/photos/profile_picture.png" class="img-fluid rounded b-shadow-a" alt="">
-                      </div>
-                    </div>
-                    <div class="col-sm-6 col-md-7">
-                      <div class="about-info">
-                        <p><span class="title-s">Name: </span> <span>Jorge A. Perez T.</span></p>
-                        <p><span class="title-s">Profile: </span> <span>Software Developer Engineer in Tests</span></p>
-                        <p><span class="title-s">Email: </span> <span>contact@jorgeperez.dev</span></p>
-                        <p><span class="title-s">Phone: </span> <span>+52 (333) 955-4490</span></p>
-                        <p><span class="title-s">Resume: </span> <span><a href="resources/Jorge Perez Resume.pdf" download><font color="blue"> ↓ Download Resume ↓ </font></a></span></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="skill-mf">
-                    <p class="title-s">Skill</p>
-                    <span>HTML</span> <span class="pull-right">85%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span>Ruby</span> <span class="pull-right">75%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span>Rails</span> <span class="pull-right">50%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span>Selenium / Watir</span> <span class="pull-right">90%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                     <span>iOS / Android</span> <span class="pull-right">90%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="about-me pt-4 pt-md-0">
-                    <div class="title-box-2">
-                      <h5 class="title-left">
-                        About me
-                      </h5>
-                    </div>
-                    <p class="lead">
-                      Currently working at AMCO in Guadalajara, Jalisco, Mexico. Studied Computer Science in ITESO
-                      and have taken online courses on Udemy about Ruby on Rails and Cucumber Automatization Testing.
-                      I have knowladge in mobile app development for Android using Android Studio and also beginning to
-                      learn Flutter Development using Dart for both IOS and Android apps.
-                    </p>
-                    <p class="lead">
-                      On my free time I enjoy reading science fiction books like "Origin" by Dan Brown or one of my favorite
-                      books "Eragon" by Christopher Paolini. I also enjoy going camping with friends and family to Santa
-                      Maria Del Oro Lake, where the skies fill up of stars and the sound of nature fills me up with peace.
-                    </p>
-                    <p class="lead">
-                      I consider myself a funny, curious and empathic guy, with a never ending hunger for learning and
-                      discovering new skills.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <h3>Robots and RFID</h3>
+          <p>As Technology Solutions Manager at Gemetytec, I build RFID, RTLS and AMR setups for supply chain and
+            logistics. One favorite result: <b>cutting inventory counts from days to hours using RFID.</b></p>
+        </div>
+        <div class="row">
+          <h3>AI agents and workflows</h3>
+          <div>
+            <p>I’m deep into agentic coding and automation. I like wiring models into things that actually run, not just
+              demos.</p>
+            <ul class="chips hot">
+              <li>n8n</li>
+              <li>ElevenLabs</li>
+              <li>RAG</li>
+              <li>Supabase vectors</li>
+              <li>MCP</li>
+              <li>Context engineering</li>
+            </ul>
           </div>
+        </div>
+        <div class="row">
+          <h3>Quality, always</h3>
+          <p>Seven years of QA automation (Selenium, Appium, Watir, Postman, CI/CD) taught me to trust but verify. That
+            habit is why my agents have guardrails.</p>
         </div>
       </div>
-    </section><!-- End About Section -->
+    </section>
 
-    <!-- ======= Hobbies Section ======= -->
-    <section id="hobbies" class="services-mf route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">
-                Hobbies
-              </h3>
-              <p class="subtitle-a">
-                When life gives you lemons, now search for oranges
-              </p>
-              <div class="line-mf"></div>
-            </div>
-          </div>
+    <section>
+      <h2>Off the clock</h2>
+      <p class="sub">Where the real personality lives.</p>
+      <div class="off">
+        <div>
+          <h3>Camping and nature</h3>
+          <p>Tent, trees and zero notifications. My best debugging happens by a fire.</p>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-ios-book"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Reading</h2>
-                <p class="s-description text-center">
-                  Whenever I find some time to myself, I grab my Kindle and start reading.
-                  for me, reading is like traveling through dimentions into strange worlds.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-star"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Camping</h2>
-                <p class="s-description text-center">
-                  Since I was a small boy, my father took me and my brothers camping to
-                  Santa Maria Del Oro Lake, and now, each year I cant wait to return.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-music-note"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Music</h2>
-                <p class="s-description text-center">
-                  Without music, my life would have no meaning at all. I listen to music
-                  while driving, working, eating, and cycling. No music, no fun.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-wrench"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">DIY</h2>
-                <p class="s-description text-center">
-                  My grandfather was a medical doctor that loved fixing stuff, so when
-                  I visited him, he always gave me work to do arround the house too fix
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-plane"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Traveling</h2>
-                <p class="s-description text-center">
-                  LI've had the great priviladge to have had traveled so much arround the
-                  world. From Asia to Europe and most recently, the Carebean
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="ion-ios-game-controller-b"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Video Games</h2>
-                <p class="s-description text-center">
-                  As all good Software Developers, Videogames are a great part of my life,
-                  From childhood to present time. I never leave without my Nintendo Switch.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div>
+          <h3>Steam Deck</h3>
+          <p>Emulator games on the couch. Save states are the closest thing we have to ctrl+z for life.</p>
+        </div>
+        <div>
+          <h3>Books</h3>
+          <p>Always reading something. The to-read pile only goes one direction.</p>
         </div>
       </div>
-    </section><!-- End Services Section -->
+    </section>
 
-    <!-- ======= Counter Section ======= -->
-    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/photos/MVIMG_20200203_090306.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="ion-social-github"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter">25</p>
-                <span class="counter-text">GITHUB REPOSITORIES</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter">4</p>
-                <span class="counter-text">YEARS OF EXPERIENCE</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="ion-map"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter">73</p>
-                <span class="counter-text">VISITED CITIES</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="ion-ios-paw"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter">1</p>
-                <span class="counter-text">CURRENT DOGS OWNED</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Counter Section -->
+    <section>
+      <h2>How I got here</h2>
+      <p class="sub">The short version of the career.</p>
+      <ol class="tl">
+        <li><span class="when">Aug 2025 to now</span>
+          <h3>Technology Solutions Manager</h3>
+          <p class="at">Gemetytec</p>
+          <p>Moved from testing software to moving things around in the physical world: RFID, RTLS and AMRs.</p>
+        </li>
+        <li><span class="when">Apr 2021 to Aug 2025</span>
+          <h3>QA Automation Engineer</h3>
+          <p class="at">Wizeline</p>
+          <p>Testing web, mobile and backend for Harley-Davidson and Fox Corp.</p>
+        </li>
+        <li><span class="when">Oct 2018 to Apr 2021</span>
+          <h3>QA Automation Lead</h3>
+          <p class="at">AMCO</p>
+          <p>Started as a tester, ended up leading a team of 6 and automating a lot of the broken parts.</p>
+        </li>
+      </ol>
+      <p class="edu">Studied Mechatronics at Tec de Monterrey, then Computer and Information Sciences at ITESO. Code in
+        Python, JavaScript, Java and C#. English and Spanish, both native.</p>
+    </section>
 
-    <!-- ======= Family Section ======= -->
-    <section id="family" class="portfolio-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">
-                Family
-              </h3>
-              <p class="subtitle-a">
-                A happy family is but an earlier heaven.
-              </p>
-              <div class="line-mf"></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/photos/00100sPORTRAIT_00100_BURST20190510170315383_COVER.jpg" data-gall="portfolioGallery" class="venobox">
-                <div class="work-img">
-                  <img src="assets/photos/00100sPORTRAIT_00100_BURST20190510170315383_COVER.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Together Since Feb 28, 2013</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">AREL & JAPT</span> / <span class="w-date">28 Feb. 2013</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/photos/MVIMG_20200201_125811_1.jpg" data-gall="portfolioGallery" class="venobox">
-                <div class="work-img">
-                  <img src="assets/photos/MVIMG_20200201_125811_1.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">JAPE Birthday #2</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">JAPE</span> / <span class="w-date">05 Feb. 2020</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/photos/MVIMG_20200216_155938.jpg" data-gall="portfolioGallery" class="venobox">
-                <div class="work-img">
-                  <img src="assets/photos/MVIMG_20200216_155938.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Oasis of the Seas</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Carebean</span> / <span class="w-date">16 Feb. 2020</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/photos/camping.jpg" data-gall="portfolioGallery" class="venobox">
-                <div class="work-img">
-                  <img src="assets/photos/camping.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Camping Lake</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">My Birthday</span> / <span class="w-date">06 Apr. 2019</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/photos/parents.jpg" data-gall="portfolioGallery" class="venobox">
-                <div class="work-img">
-                  <img src="assets/photos/parents.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">My Parents</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">And Son</span> / <span class="w-date">30 Sep. 2018</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/photos/MVIMG_20191130_102557.jpg" data-gall="portfolioGallery" class="venobox">
-                <div class="work-img">
-                  <img src="assets/photos/MVIMG_20191130_102557.jpg" alt="" class="img-fluid">
-                </div>
-                <div class="work-content">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <h2 class="w-title">Apollo</h2>
-                      <div class="w-more">
-                        <span class="w-ctegory">Husky</span> / <span class="w-date">30 Nov. 2019</span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="w-like">
-                        <span class="ion-ios-plus-outline"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div id="testimonial-mf" class="owl-carousel owl-theme">
-              <div class="testimonial-box">
-                <div class="author-test">
-                  <img src="assets/img/Albert_Einstein_Head.jpg" alt="" class="rounded-circle b-shadow-a">
-                  <span class="author">Albert Einstein</span>
-                </div>
-                <div class="content-test">
-                  <p class="description lead">
-                    To raise new questions, new possibilities, to regard old problems from a new angle,
-                    requires creative imagination and marks real advance in science.
-                  </p>
-                  <span class="comit"><i class="fa fa-quote-right"></i></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Testimonials Section -->
-
-    <!-- ======= Blog Section =======
-    <section id="blog" class="blog-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">
-                Blog
-              </h3>
-              <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              </p>
-              <div class="line-mf"></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a href="blog-single.html"><img src="assets/img/post-1.jpg" alt="" class="img-fluid"></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category">Travel</h6>
-                  </div>
-                </div>
-                <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-                <p class="card-description">
-                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                  a pellentesque nec,
-                  egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author">
-                  <a href="#">
-                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                    <span class="author">Morgan Freeman</span>
-                  </a>
-                </div>
-                <div class="post-date">
-                  <span class="ion-ios-clock-outline"></span> 10 min
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a href="blog-single.html"><img src="assets/img/post-2.jpg" alt="" class="img-fluid"></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category">Web Design</h6>
-                  </div>
-                </div>
-                <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-                <p class="card-description">
-                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                  a pellentesque nec,
-                  egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author">
-                  <a href="#">
-                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                    <span class="author">Morgan Freeman</span>
-                  </a>
-                </div>
-                <div class="post-date">
-                  <span class="ion-ios-clock-outline"></span> 10 min
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a href="blog-single.html"><img src="assets/img/post-3.jpg" alt="" class="img-fluid"></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category">Web Design</h6>
-                  </div>
-                </div>
-                <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-                <p class="card-description">
-                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                  a pellentesque nec,
-                  egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author">
-                  <a href="#">
-                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                    <span class="author">Morgan Freeman</span>
-                  </a>
-                </div>
-                <div class="post-date">
-                  <span class="ion-ios-clock-outline"></span> 10 min
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> End Blog Section -->
-
-
-    <!-- ======= Contact Section =======
-    <section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">
-                        Send Message Us
-                      </h5>
-                    </div>
-                    <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                              <div class="validate"></div>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                              <div class="validate"></div>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                              <div class="validate"></div>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                              <div class="validate"></div>
-                            </div>
-                          </div>
-                          <div class="col-md-12 text-center mb-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                          </div>
-                          <div class="col-md-12 text-center">
-                            <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">
-                        Get in Touch
-                      </h5>
-                    </div>
-                    <div class="more-info">
-                      <p class="lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum dolorem soluta quidem
-                        expedita aperiam aliquid at.
-                        Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
-                        mollitia inventore?
-                      </p>
-                      <ul class="list-ico">
-                        <li><span class="ion-ios-location"></span> 329 WASHINGTON ST BOSTON, MA 02108</li>
-                        <li><span class="ion-ios-telephone"></span> (617) 557-0089</li>
-                        <li><span class="ion-email"></span> contact@example.com</li>
-                      </ul>
-                    </div>
-                    <div class="socials">
-                      <ul>
-                        <li><a href=""><span class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
-                        <li><a href=""><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                        <li><a href=""><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                        <li><a href=""><span class="ico-circle"><i class="ion-social-pinterest"></i></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
+    <section class="end">
+      <h2>Want to talk robots, videogames, agents or campsites?</h2>
+      <div class="cta"><a class="btn main" href="mailto:contact@jorgeperez.dev">contact@jorgeperez.dev</a><a
+          class="btn ghost" href="https://www.linkedin.com/in/george-perez-a68985140/" target="_blank"
+          rel="noopener">LinkedIn</a></div>
+    </section>
+  </main>
   <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>Jorge Perez</strong>. All Rights Reserved</p>
-            <div class="credits">
-
-              <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/vendor/counterup/jquery.counterup.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+    <div class="wrap">Jorge Pérez, Guadalajara. Tested twice, shipped once.</div>
+  </footer>
+  <script>
+    try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) { document.querySelector('.map svg').pauseAnimations() } } catch (e) { }
+  </script>
 </body>
 
 </html>
